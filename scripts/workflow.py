@@ -71,7 +71,7 @@ def generate_summary(file_path):
                     stop=None,  # You can add a custom stop condition if desired
                 )
 
-                summary += response.choices[0].text.strip()
+                summary += "\n\n" + response.choices[0].text.strip()
                 print(f"******************************\n\n{summary}")
 
                 # # Save the summary as a Markdown file
