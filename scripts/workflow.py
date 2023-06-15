@@ -48,11 +48,17 @@ openai.api_key = "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"
 def generate_summary(file_path):
     print("SUM")
     with open(file_path, "r", encoding="utf-8") as file:
-        text = "provide a review in markdown with 3 sections: Readability, Maintainability, and Performance. Include code samples of how it can be improved.\n\n```" + file.read() + "```"
         summary = ""
+        # text = "provide a review in markdown with 3 sections: Readability, Maintainability, and Performance. Include code samples of how it can be improved.\n\n```" + file.read() + "```"
         functions = parse_python_file(file_path)
         for function in functions:
             print(f"******************************\n\n{function['full_text']}")
+
+            text = (
+                "provide a review in markdown with 3 sections: Readability, Maintainability, and Performance. Write code samples of how it can be improved with code blocks that start with ```python.\n\n```\n"
+                + function["full_text"]
+                + "\n```\n"
+            )
 
             try:
                 # Adjust the parameters according to your requirements
