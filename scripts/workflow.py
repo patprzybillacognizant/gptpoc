@@ -84,7 +84,7 @@ def generate_summary(file_path):
 
 def create_github_issue(user, head_branch, title, body,link):
     
-    repo_owner="patprzybillacognizant" 
+    repo_owner="gptpocorg" 
     repo_name="gptpoc"
     base_branch="main"
     
