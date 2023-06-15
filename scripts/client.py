@@ -5,14 +5,6 @@ from collections import defaultdict
 from typing import Any, Dict, Type
 import requests
 
-
-
-
-
-
-
-
-
 from django.conf import settings
 from django.db import IntegrityError
 from django.db.models import Model
