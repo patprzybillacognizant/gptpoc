@@ -10,9 +10,6 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: get PR link
-      uses: kceb/pull-request-url-action@v1
-      id: pr-url
       
     - name: Checkout code
       uses: actions/checkout@v3
