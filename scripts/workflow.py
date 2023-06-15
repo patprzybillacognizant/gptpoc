@@ -49,7 +49,7 @@ def generate_summary(file_path):
     print("SUM")
     with open(file_path, "r", encoding="utf-8") as file:
         text = "provide a review in markdown with 3 sections: Readability, Maintainability, and Performance. Include code samples of how it can be improved.\n\n```" + file.read() + "```"
-
+        summary = ""
         functions = parse_python_file(file_path)
         for function in functions:
             print(f"******************************\n\n{function['full_text']}")
@@ -65,7 +65,7 @@ def generate_summary(file_path):
                     stop=None,  # You can add a custom stop condition if desired
                 )
 
-                summary = response.choices[0].text.strip()
+                summary += response.choices[0].text.strip()
                 print(f"******************************\n\n{summary}")
 
                 # # Save the summary as a Markdown file
@@ -74,13 +74,13 @@ def generate_summary(file_path):
                 #     file.write(summary)
 
                 #     # Print a success message
-                #print(f"Summary saved to {output_file} successfully.")
-
+                #print(f"Summary saved to {output_file} successfully."
+                
             except openai.error.AuthenticationError as e:
                 print("OpenAI unknown authentication error")
                 print(e.json_body)
                 print(e.headers)
-
+    return summary
 
 def create_github_issue(user, head_branch, title, body,link):
     
