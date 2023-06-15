@@ -130,7 +130,7 @@ def main():
     body = generate_summary(sys.argv[1])
     print(body)
     html = render_github_markdown(body)
-    pr_number = create_github_issue(sys.argv[2], sys.argv[3], sys.argv[4], html, "asdasd" )
+    pr_number = create_github_issue(sys.argv[2], sys.argv[3], sys.argv[4], body, "asdasd" )
     print(pr_number)
     
 
