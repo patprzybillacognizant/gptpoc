@@ -88,6 +88,7 @@ class FacebookMarketingAPIClient(Platform, ShopFinderMixin):
                 )  # TODO: kill me, find a better way to handle rate limiting here
             return retval
 
+    
     def _sync(self, object_type: Type[Campaign] | Type[AdSet]):
         sf_model: Type[Model]
         tf_class: Type[_FacebookTransform]
