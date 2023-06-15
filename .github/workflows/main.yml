@@ -25,4 +25,4 @@ jobs:
       
     - name: Run Python Script
       run: |
-        python scripts/workflow.py ${{ github.workspace }}/scripts/client.py ${{ github.event.pull_request.user.login }} ${{ github.head_ref }} ${{ github.event.pull_request.title }} ${{ steps.pr-url.outputs.url }}	
+        python scripts/workflow.py ${{ github.workspace }}/scripts/client_short.py ${{ github.event.pull_request.user.login }} ${{ github.head_ref }} ${{ github.event.pull_request.title }} "adazda"	
