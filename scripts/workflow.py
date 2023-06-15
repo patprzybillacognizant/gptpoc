@@ -53,7 +53,6 @@ def generate_summary(file_path):
         functions = parse_python_file(file_path)
         for function in functions:
             print(f"******************************\n\n{function['full_text']}")
-
             text = (
                 "provide a review in markdown with 3 sections: Readability, Maintainability, and Performance. Write code samples of how it can be improved with code blocks that start with ```python.\n\n```\n"
                 + function["full_text"]
@@ -71,9 +70,11 @@ def generate_summary(file_path):
                     stop=None,  # You can add a custom stop condition if desired
                 )
 
+                print(f"******************************\n\n{function['name']}")
+                print(f"******************************\n\n")
+                
                 # summary += "\n\n##" + function["full_text"] + "  \n" + response.choices[0].text.strip()
                 summary += f"\n\n## {function['full_text']}  \n{response.choices[0].text.strip()}"
-                print(f"******************************\n\n{summary}")
 
                 # # Save the summary as a Markdown file
                 # output_file = f"output/{function['name']}.md"
