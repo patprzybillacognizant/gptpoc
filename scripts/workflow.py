@@ -91,7 +91,7 @@ def create_github_issue(user, head_branch, title, body,link):
     url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/issues"
     print(url)
     headers = {
-        "Authorization": "Bearer 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",
+        "Authorization": "Bearer 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",
         "Accept": "application/vnd.github.v3+json"
     }
     payload = {
@@ -115,7 +115,7 @@ def render_github_markdown(body):
     url = "https://api.github.com/markdown"
     print(url)
     headers = {
-        "Authorization": "Bearer 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",
+        "Authorization": "Bearer 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",
         "Accept": "application/vnd.github.v3+json"
     }
     payload = {
