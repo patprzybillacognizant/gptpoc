@@ -1,0 +1,31 @@
+name: Run Python Script on Pull Request
+on:
+  pull_request:
+    types: [opened]
+    branches: [ main ]
+  
+
+jobs:
+  run_script:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: get PR link
+      uses: kceb/pull-request-url-action@v1
+      id: pr-url
+      
+    - name: Checkout code
+      uses: actions/checkout@v3
+    - name: upgrade pip
+      run: |
+        python -m pip install --upgrade pip
+    - name: Update Setup Tools
+      run: |
+        pip install -U setuptools
+    - name: Pull Dependencies
+      run: |
+        pip install -r scripts/requirements.txt --use-pep517
+      
+    - name: Run Python Script
+      run: |
+        python scripts/workflow.py ${{ github.workspace }}/scripts/client.py ${{ github.event.pull_request.user.login }} ${{ github.head_ref }} ${{ github.event.pull_request.title }} ${{ steps.pr-url.outputs.url }}	
