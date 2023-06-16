@@ -17,8 +17,6 @@ from requests.exceptions import HTTPError
 
 
 
-
-
 from shadowfax.ad_platforms.audience_builder import ShopFinderMixin
 from shadowfax.ad_platforms.facebook.transforms import (
     FacebookAdSetTransform,
